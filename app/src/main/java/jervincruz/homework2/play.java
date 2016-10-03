@@ -497,19 +497,9 @@ public class play extends AppCompatActivity{
             }
         }
 
-        for(int i = 0; i < 4; i++){
-            buttons[i] = new ImageButton(this);
-            RelativeLayout.LayoutParams[] params = new RelativeLayout.LayoutParams[unmatchedPokemon.size()];
-            params[i] = new RelativeLayout.LayoutParams(310, 310);
-            params[i].setMargins(315*i, 0, 0, 0);
-            relativeLayout.addView(buttons[i], params[i]);
-        }
-
-
 
         //Collections.shuffle(Arrays.asList(buttons));
 
-        /*
 
         for(int i = 0; i < 4; i++) {
             buttons[i] = new ImageButton(this);
@@ -517,31 +507,6 @@ public class play extends AppCompatActivity{
             params[i] = new RelativeLayout.LayoutParams(310, 310);
             params[i].setMargins(315*i, 0, 0, 0);
             relativeLayout.addView(buttons[i], params[i]);
-        }
-        matchedPokemon.add("eevee1");
-
-        for(int i = 0; i < matchedPokemon.size(); i++){
-            // all the if statements start here
-            buttons[i].setOnClickListener(new View.OnClickListener(){
-                @Override
-                public void onClick(View v){
-                    for(int i = 0; i < matchedPokemon.size(); i++){
-                    if(matchedPokemon.get(i) == "eevee1"){
-                        clickCounter++;
-                        if (clickCounter == 1) {
-                            buttons[i].startAnimation(shake);
-                            firstPokemon = "eevee1";
-                            buttons[i].setImageResource(R.drawable.eevee);
-                        } else if (clickCounter == 2) {
-                            secondPokemon = "eevee1";
-                            buttons[i].setImageResource(R.drawable.eevee);
-                            isMatch(firstPokemon, secondPokemon);
-                        }
-                    }
-                    }
-                }
-            });
-
         }
 
         for(int i = 4; i < 8; i++) {
@@ -581,10 +546,31 @@ public class play extends AppCompatActivity{
             row5++;
         }
 
-*/
+        matchedPokemon.add("eevee1");
+        matchedPokemon.add("ditto1");
+        matchedPokemon.add("jigglypuff1");
+
+        for(int i = 0; i < unmatchedPokemon.size(); i++){
+            // all the if statements start here
+            buttons[i].setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v){
+                    for(int i = 0; i < unmatchedPokemon.size(); i++){
+                        if(unmatchedPokemon.get(i) == "eevee1")
+                            buttons[i] = eevee1;
+                        else if(unmatchedPokemon.get(i) == "eevee2")
+                            buttons[i] = eevee2;
 
 
-        //b1.setLayoutParams(param);
+
+
+                    }
+
+                }
+            });
+
+        }
+
     }
 
     public void isMatch(String firstPokemon, String secondPokemon){
@@ -601,6 +587,8 @@ public class play extends AppCompatActivity{
                     clickCounter = 0;
                     matchedPokemon.add(firstPokemon);
                     matchedPokemon.add(secondPokemon);
+                    unmatchedPokemon.remove(eevee1);
+                    unmatchedPokemon.remove(eevee2);
                 }
                 // Ditto
                 else if((firstPokemon == "ditto1" && secondPokemon == "ditto2") || (firstPokemon == "ditto2" && secondPokemon == "ditto1")){
@@ -611,7 +599,10 @@ public class play extends AppCompatActivity{
                     ditto1.setVisibility(View.INVISIBLE);
                     ditto2.setVisibility(View.INVISIBLE);
                     clickCounter = 0;
-
+                    matchedPokemon.add(firstPokemon);
+                    matchedPokemon.add(secondPokemon);
+                    unmatchedPokemon.remove(ditto1);
+                    unmatchedPokemon.remove(ditto2);
                 }
                 // Jigglypuff
                 else if((firstPokemon == "jigglypuff1" && secondPokemon == "jigglypuff2") || (firstPokemon == "jigglypuff2" && secondPokemon == "jigglypuff1")){
@@ -622,7 +613,10 @@ public class play extends AppCompatActivity{
                     jigglypuff1.setVisibility(View.INVISIBLE);
                     jigglypuff2.setVisibility(View.INVISIBLE);
                     clickCounter = 0;
-
+                    matchedPokemon.add(firstPokemon);
+                    matchedPokemon.add(secondPokemon);
+                    unmatchedPokemon.remove(jigglypuff1);
+                    unmatchedPokemon.remove(jigglypuff2);
                 }
                 // Mew
                 else if((firstPokemon == "mew1" && secondPokemon == "mew2") || (firstPokemon == "mew2" && secondPokemon == "mew1")){
@@ -633,7 +627,10 @@ public class play extends AppCompatActivity{
                     mew1.setVisibility(View.INVISIBLE);
                     mew2.setVisibility(View.INVISIBLE);
                     clickCounter = 0;
-
+                    matchedPokemon.add(firstPokemon);
+                    matchedPokemon.add(secondPokemon);
+                    unmatchedPokemon.remove(mew1);
+                    unmatchedPokemon.remove(mew2);
                 }
                 // Mewtwo
                 else if((firstPokemon == "mewtwo1" && secondPokemon == "mewtwo2") || (firstPokemon == "mewtwo2" && secondPokemon == "mewtwo1")){
@@ -644,7 +641,10 @@ public class play extends AppCompatActivity{
                     mewtwo1.setVisibility(View.INVISIBLE);
                     mewtwo2.setVisibility(View.INVISIBLE);
                     clickCounter = 0;
-
+                    matchedPokemon.add(firstPokemon);
+                    matchedPokemon.add(secondPokemon);
+                    unmatchedPokemon.remove(mewtwo1);
+                    unmatchedPokemon.remove(mewtwo2);
                 }
                 // Ninetales
                 else if((firstPokemon == "ninetales1" && secondPokemon == "ninetales2") || (firstPokemon == "ninetales2" && secondPokemon == "ninetales1")){
@@ -655,7 +655,10 @@ public class play extends AppCompatActivity{
                     ninetales1.setVisibility(View.INVISIBLE);
                     ninetales2.setVisibility(View.INVISIBLE);
                     clickCounter = 0;
-
+                    matchedPokemon.add(firstPokemon);
+                    matchedPokemon.add(secondPokemon);
+                    unmatchedPokemon.remove(ninetales1);
+                    unmatchedPokemon.remove(ninetales2);
                 }
                 // Pikachu
                 else if((firstPokemon == "pikachu1" && secondPokemon == "pikachu2") || (firstPokemon == "pikachu2" && secondPokemon == "pikachu1")){
@@ -666,7 +669,10 @@ public class play extends AppCompatActivity{
                     pikachu1.setVisibility(View.INVISIBLE);
                     pikachu2.setVisibility(View.INVISIBLE);
                     clickCounter = 0;
-
+                    matchedPokemon.add(firstPokemon);
+                    matchedPokemon.add(secondPokemon);
+                    unmatchedPokemon.remove(pikachu1);
+                    unmatchedPokemon.remove(pikachu2);
                 }
                 // Psyduck
                 else if((firstPokemon == "psyduck1" && secondPokemon == "psyduck2") || (firstPokemon == "psyduck2" && secondPokemon == "psyduck1")){
@@ -677,7 +683,10 @@ public class play extends AppCompatActivity{
                     psyduck1.setVisibility(View.INVISIBLE);
                     psyduck2.setVisibility(View.INVISIBLE);
                     clickCounter = 0;
-
+                    matchedPokemon.add(firstPokemon);
+                    matchedPokemon.add(secondPokemon);
+                    unmatchedPokemon.remove(psyduck1);
+                    unmatchedPokemon.remove(psyduck2);
                 }
                 // Slowpoke
                 else if((firstPokemon == "slowpoke1" && secondPokemon == "slowpoke2") || (firstPokemon == "slowpoke2" && secondPokemon == "slowpoke1")){
@@ -688,7 +697,10 @@ public class play extends AppCompatActivity{
                     slowpoke1.setVisibility(View.INVISIBLE);
                     slowpoke2.setVisibility(View.INVISIBLE);
                     clickCounter = 0;
-
+                    matchedPokemon.add(firstPokemon);
+                    matchedPokemon.add(secondPokemon);
+                    unmatchedPokemon.remove(slowpoke1);
+                    unmatchedPokemon.remove(slowpoke2);
                 }
                 // Togepi
                 else if((firstPokemon == "togepi1" && secondPokemon == "togepi2") || (firstPokemon == "togepi2" && secondPokemon == "togepi1")){
@@ -699,7 +711,10 @@ public class play extends AppCompatActivity{
                     togepi1.setVisibility(View.INVISIBLE);
                     togepi2.setVisibility(View.INVISIBLE);
                     clickCounter = 0;
-
+                    matchedPokemon.add(firstPokemon);
+                    matchedPokemon.add(secondPokemon);
+                    unmatchedPokemon.remove(togepi1);
+                    unmatchedPokemon.remove(togepi2);
                 }
                 else{ // hide unmatched pokemon
                     hidePokemon(firstPokemon, secondPokemon);
