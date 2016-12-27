@@ -68,7 +68,10 @@ public class rulesFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_rules, container, false);
         TextView tv = (TextView) view.findViewById(R.id.rules);
-        tv.setText("YES!");
+        if (savedInstanceState != null) {
+            tv.setText("RULES");
+        }
+
         return view;
     }
 

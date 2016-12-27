@@ -489,6 +489,7 @@ public class play extends AppCompatActivity{
         relativeLayout.removeAllViews();
         int row2 = 0; int row3 = 0; int row4 = 0; int row5 = 0;
 
+        /*
         // get the unmatched and put those in new layout
         for(int i = 0; i < matchedPokemon.size(); i++){
             for(int j = 0; j < unmatchedPokemon.size(); j++){
@@ -496,7 +497,7 @@ public class play extends AppCompatActivity{
                     unmatchedPokemon.remove(j);
             }
         }
-
+*/
 
         //Collections.shuffle(Arrays.asList(buttons));
 
@@ -519,7 +520,6 @@ public class play extends AppCompatActivity{
         }
 
         for(int i = 8; i < 12; i++) {
-            int spacing = 0;
             buttons[i] = new ImageButton(this);
             RelativeLayout.LayoutParams[] params = new RelativeLayout.LayoutParams[20];
             params[i] = new RelativeLayout.LayoutParams(310, 310);
@@ -528,7 +528,6 @@ public class play extends AppCompatActivity{
             row3++;
         }
         for(int i = 12; i < 16; i++) {
-            int spacing = 0;
             buttons[i] = new ImageButton(this);
             RelativeLayout.LayoutParams[] params = new RelativeLayout.LayoutParams[20];
             params[i] = new RelativeLayout.LayoutParams(310, 310);
@@ -537,7 +536,6 @@ public class play extends AppCompatActivity{
             row4++;
         }
         for(int i = 16; i < 20; i++) {
-            int spacing = 0;
             buttons[i] = new ImageButton(this);
             RelativeLayout.LayoutParams[] params = new RelativeLayout.LayoutParams[20];
             params[i] = new RelativeLayout.LayoutParams(310, 310);
@@ -546,30 +544,6 @@ public class play extends AppCompatActivity{
             row5++;
         }
 
-        matchedPokemon.add("eevee1");
-        matchedPokemon.add("ditto1");
-        matchedPokemon.add("jigglypuff1");
-
-        for(int i = 0; i < unmatchedPokemon.size(); i++){
-            // all the if statements start here
-            buttons[i].setOnClickListener(new View.OnClickListener(){
-                @Override
-                public void onClick(View v){
-                    for(int i = 0; i < unmatchedPokemon.size(); i++){
-                        if(unmatchedPokemon.get(i) == "eevee1")
-                            buttons[i] = eevee1;
-                        else if(unmatchedPokemon.get(i) == "eevee2")
-                            buttons[i] = eevee2;
-
-
-
-
-                    }
-
-                }
-            });
-
-        }
 
     }
 
